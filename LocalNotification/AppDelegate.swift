@@ -6,16 +6,25 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
+            // Override point for customization after application launch.
+            
+            let notificationCenter = UNUserNotificationCenter.current()
+          // let action = UNNotificationAction.init(identifier: "id", title: "action1", options: .foreground)
+          // let category = UNNotificationCategory.init(identifier: "categoryID", actions: [action], intentIdentifiers: ["id1"], options: UNNotificationCategoryOptions.allowInCarPlay)
+          // notificationCenter.setNotificationCategories([category])
+                  notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { isAllowed, error in
+                      
+                  }
+                  
+            return true
+        }
 
     // MARK: UISceneSession Lifecycle
 
